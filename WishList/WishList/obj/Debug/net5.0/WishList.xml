@@ -1,0 +1,132 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>WishList</name>
+    </assembly>
+    <members>
+        <member name="M:WishList.Controllers.DesejoController.Get">
+            <summary>
+            Irá listar todos os desejos em JSON NO PostMan
+            </summary>
+            <returns>Se tudo der certo ira retornar os desejos e um OK</returns>
+        </member>
+        <member name="M:WishList.Controllers.DesejoController.Post(WishList.Domains.Desejo)">
+            <summary>
+            Irá cadastrar um novo desejo no banco de dados via JSON
+            </summary>
+            <param name="novoDesejo"></param>
+            <returns>Se tudo der certo irá retornar um StatusCode de 202</returns>
+        </member>
+        <member name="M:WishList.Controllers.DesejoController.Put(System.Int32,WishList.Domains.Desejo)">
+            <summary>
+            Irá atualizar um desejo já cadastrado por meio de seu id
+            </summary>
+            <param name="id"></param>
+            <param name="desejoAtualizado"></param>
+            <returns>Se tudo der certo irá retornar um StatusCode de 201</returns>
+        </member>
+        <member name="M:WishList.Controllers.DesejoController.Delete(System.Int32)">
+            <summary>
+            Irá deletar um desejo solicitado por meio do id fornecido
+            </summary>
+            <param name="id"></param>
+            <returns>Irá retornar um StatusCode de 204 caso dê tudo certo</returns>
+        </member>
+        <member name="P:WishList.Controllers.UsuarioController._usuarioRepository">
+            <summary>
+            O objeto _usuarioRepository recebe todos os métodos criados na interface
+            </summary>
+        </member>
+        <member name="M:WishList.Controllers.UsuarioController.#ctor">
+            <summary>
+            Instancia o objeto _usuarioRepossitoey para que haja a referência aos métodos
+            </summary>
+        </member>
+        <member name="M:WishList.Controllers.UsuarioController.Get">
+             <summary>
+            Lista todos os tipos de usuários cadastrados no sistema
+             </summary>
+             <returns>Uma lista de usuários e um status code Ok - 200</returns>
+        </member>
+        <member name="M:WishList.Controllers.UsuarioController.Post(WishList.Domains.Usuario)">
+            <summary>
+            Método POST irá Cadastrar usuários via JSON com o POSTMAN
+            </summary>
+            <param name="novoUsuario">Obejto para instanciar um novo objeto usuário com todas as suas propriedades</param>
+            <returns>Retorna um status code de 201 - está tudo certo</returns>
+        </member>
+        <member name="M:WishList.Controllers.UsuarioController.Put(System.Int32,WishList.Domains.Usuario)">
+            <summary>
+            Atualiza um usuários que já está cadastrado no sistema
+            </summary>
+            <param name="id">id informado para achar o usuário desejado</param>
+            <param name="usuarioAtualizado">Objeto para armazenar as novas informações</param>
+            <returns>Retorna um Satus code informando se tudo ocorreu bem, caso não tenha ocorrido retorna um bad request</returns>
+        </member>
+        <member name="M:WishList.Controllers.UsuarioController.Delete(System.Int32)">
+            <summary>
+            Deleta um usuário já cadastrado no sistema
+            </summary>
+            <param name="id">parâmetro usado para encontrar o usuário desejado</param>
+            <returns>Deleta o usuário desejado caso você tenha permissão e um StatusCode caso dê certo, caso contrário gera um BadRequest</returns>
+        </member>
+        <member name="M:WishList.Interfaces.IDesejoRepository.ListarTodos">
+            <summary>
+            Lista todos os desejos cadastrados no sistema
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WishList.Interfaces.IDesejoRepository.Cadastrar(WishList.Domains.Desejo)">
+            <summary>
+            Cria um novo desejo com suas devidas propriedades
+            </summary>
+            <param name="novoDesejo"></param>
+        </member>
+        <member name="M:WishList.Interfaces.IDesejoRepository.Atualizar(System.Int32,WishList.Domains.Desejo)">
+            <summary>
+            Atualiza um desejo pelo id que foi passado e salva no objeto especificado
+            </summary>
+            <param name="id"></param>
+            <param name="desejoAtualizado"></param>
+        </member>
+        <member name="M:WishList.Interfaces.IDesejoRepository.Deletar(System.Int32)">
+            <summary>
+            Deleta um desejo por meio do id passado
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:WishList.Interfaces.IUsuarioRepository.ListarTodos">
+            <summary>
+            Método irá listar todos os usúários cadastrados no sistema
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:WishList.Interfaces.IUsuarioRepository.Cadastrar(WishList.Domains.Usuario)">
+            <summary>
+            Método que irá cadastrar novos usuários no sistema
+            </summary>
+            <param name="novoUsuario"></param>
+        </member>
+        <member name="M:WishList.Interfaces.IUsuarioRepository.Atualizar(System.Int32,WishList.Domains.Usuario)">
+            <summary>
+            Método que irá atualizar um usuário existente no sistema por meio do id fornecido
+            </summary>
+            <param name="id"></param>
+            <param name="usuarioAtualizado"></param>
+        </member>
+        <member name="M:WishList.Interfaces.IUsuarioRepository.Deletar(System.Int32)">
+            <summary>
+            Método que irá deletar um usuário do sistema por meio do id fornecido
+            </summary>
+            <param name="id"></param>
+        </member>
+        <member name="M:WishList.Interfaces.IUsuarioRepository.Login(System.String,System.String)">
+            <summary>
+            Método será utilizado para realizar o login no sistema
+            </summary>
+            <param name="email"></param>
+            <param name="senha"></param>
+            <returns></returns>
+        </member>
+    </members>
+</doc>
