@@ -66,6 +66,7 @@ class Desejos extends Component{
 
         } else {
 
+            //let dataFormatada = (( this.state.date.getDate() )) + "/" + (( this.state.date.getMonth() )) + "/" + ((this.state.date.getUTCFullYear()))
             //DAQUI PARA BAIXO É CADASTRO
             fetch('http://localhost:5000/api/desejo', 
             {
@@ -77,8 +78,6 @@ class Desejos extends Component{
             headers : {
                 "Content-Type" : "application/json"
             }
-
-            
 
         })
 
