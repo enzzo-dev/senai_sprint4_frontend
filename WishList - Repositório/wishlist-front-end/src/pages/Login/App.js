@@ -50,6 +50,8 @@ class Login extends Component{
           "Content-Type" : "application/json"
         }
 
+        
+
     })
 
     .then(resposta => resposta.json())
@@ -64,7 +66,7 @@ class Login extends Component{
 
   componentDidMount(){
     //vai acontecer quando abrir a página
-  }
+  }   
 
   render(){
     return(

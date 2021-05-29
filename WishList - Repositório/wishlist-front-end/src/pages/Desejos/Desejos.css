@@ -1,27 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Odibee+Sans&display=swap');   
+
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Odibee Sans', cursive;
 }
-
 .novoDesejo{
     display: flex;
     justify-content: center;
+    flex-direction: row;
     width: 100%;
     height: 200px;
     margin-top: 80px;
 }
 
 .InserirDesejo{
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
     width: 470px;
     height: 300px;
 }
 
 .InserirDesejo h2{
     color: white;
-    font-size: 24px;
+    font-size: 44px;
     text-align: center;
     margin-right: 50px;
+    letter-spacing: 2px;
+    
+    font-family: 'Odibee Sans', cursive;
 }
 
 .InserirDesejo > form > input{
@@ -30,16 +40,27 @@
     border-radius: 15px;
     padding: 0 15px;
     border: none;
-    margin: 15px 0;
+    margin: 15px 20px;
+    font-size: 18px;
 
 }
 
 .InserirDesejo > form > button{
-    width: 200px;
+    width: 170px;
     height: 30px;
-    border: none;
-    margin-left: 100px;
-    border-radius: 10px;
+    border: 2px solid rgb(100, 3, 100);  
+    cursor: pointer;
+    margin-left: 30px;
+    background-color: white;  
+    border-radius: 15px;
+    font-size: 22px;
+}
+
+.InserirDesejo > form > button:hover{
+    background-color: rgb(100, 3, 100);
+    color: white;
+    transition: 0.4s;
+    
 }
 
 .listaDeDesejos{
@@ -54,6 +75,8 @@
 .listaDeDesejos h2{
     margin-top: 10px;
     color: white;
+    font-size: 48px;
+    letter-spacing: 3px;
 }
 
 .desejos{
@@ -61,19 +84,58 @@
     height: auto;
     display: flex;
     margin-top: 15px;
-    background-color: gray;
+    background-color: rgb(155, 154, 154);
+    justify-content: center;
 }
 
 .desejos p{
+    font-size: 20px;
+    letter-spacing: 1px;
     padding: 20px 20px;
+    color: white;
+    margin: 27px 15px;
 }
 
 .horaCriacao{
     text-align: center;
 }
 
-.desejos button{
-    width: 100px;
+ .desejos button{
+    width: 80px;
     height: 30px;
-    margin: 20px 10px;
+    margin: 50px 15px;
+    cursor: pointer;
+    border: none;
+    font-size: 18px;
+} 
+
+.editar{
+    background-color: rgb(155, 154, 154);
+    color: rgb(0, 107, 0);
+    
+}
+
+.apagar{
+    background-color: rgb(155, 154, 154);
+    color: rgb(126, 4, 4);
+    
+}
+
+.editar:hover{
+    background-color: rgb(0, 252, 113);
+    transition: 0.3s;
+    border-radius: 10px;
+    color: rgb(0, 0, 0);
+}
+
+.apagar:hover{
+    background-color: red;
+    color: white;
+    transition: 0.4s;
+    border-radius: 10px;
+}
+
+.desejos:hover{
+    zoom: 150%;
+    transition-duration: 5s;
 }

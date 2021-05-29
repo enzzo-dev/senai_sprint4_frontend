@@ -147,6 +147,9 @@ class Desejos extends Component{
         })
     }    
 
+    //If ternário
+    // condição ? faça algo caso seja verdadeiro : faça algo caso seja falso
+
     render(){
         return(
 
@@ -161,9 +164,16 @@ class Desejos extends Component{
                             <input type="text" value={this.state.Descricao} 
                             required
                             onChange={this.atualizarEstadoDescricao}
-                            placeholder="Insira o seu próximo sonho a ser realizado">    
+                            placeholder="Insira o seu próximo objetivo a ser alcançado!">    
                             </input>
-                            <button type="submit">Cadastrar</button>
+                                <button disabled={this.state.Descricao === '' ? 'none' : '' } type="submit">
+                                    {
+                                        this.state.idDesejoAlterado === 0 ? 'Cadastrar' : 'Atualizar'
+                                    }
+                                </button>
+                                <button disabled={this.state.Descricao === '' ? 'none' : ''} onClick={this.limparCampos}>Cancelar</button> 
+                           
+                            
                         </form>                     
                     </div>
                 </section>    
@@ -177,8 +187,8 @@ class Desejos extends Component{
                                             <div className="desejos" key={Desejo.idDesejo}>
                                                 <p>{Desejo.descricao}</p>
                                                 <p className="horaCriacao">{Desejo.dataCriacao}</p>
-                                                <button onClick={ () => this.buscarDesejoPorId(Desejo)}>Editar</button>
-                                                <button onClick={ () => this.excluirPorId(Desejo)}>Apagar</button>
+                                                <button className="editar" onClick={ () => this.buscarDesejoPorId(Desejo)}>Editar</button>
+                                                <button className="apagar" onClick={ () => this.excluirPorId(Desejo)}>Apagar</button>
                                             </div>
                                         )
                                     })
