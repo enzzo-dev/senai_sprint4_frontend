@@ -1,0 +1,36 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+.novoDesejo{
+    display: flex;
+    width: 600px;
+    height: 700px;
+    margin: 80px 80px;
+}
+
+.InserirDesejo h2{
+    color: white;
+    font-size: 24px;
+    margin-left: 15px;
+}
+
+.InserirDesejo > form > input{
+    width: 500px;
+    height: 40px;
+    border-radius: 15px;
+    padding: 0 15px;
+    border: none;
+    margin: 15px 10px;
+
+}
+
+.InserirDesejo > form > button{
+    width: 200px;
+    height: 30px;
+    border: none;
+    margin-left: 310px;
+    border-radius: 10px;
+}
