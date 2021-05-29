@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "D:\\Senai\\senai_sprint4_frontend\\WishList\\WishList\\WishList.csproj": {}
+    "D:\\Senai\\senai_sprint4_frontend\\WishList - Repositório\\WishList\\WishList\\WishList.csproj": {}
   },
   "projects": {
-    "D:\\Senai\\senai_sprint4_frontend\\WishList\\WishList\\WishList.csproj": {
+    "D:\\Senai\\senai_sprint4_frontend\\WishList - Repositório\\WishList\\WishList\\WishList.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\Senai\\senai_sprint4_frontend\\WishList\\WishList\\WishList.csproj",
+        "projectUniqueName": "D:\\Senai\\senai_sprint4_frontend\\WishList - Repositório\\WishList\\WishList\\WishList.csproj",
         "projectName": "WishList",
-        "projectPath": "D:\\Senai\\senai_sprint4_frontend\\WishList\\WishList\\WishList.csproj",
+        "projectPath": "D:\\Senai\\senai_sprint4_frontend\\WishList - Repositório\\WishList\\WishList\\WishList.csproj",
         "packagesPath": "C:\\Users\\Enzzo Lima\\.nuget\\packages\\",
-        "outputPath": "D:\\Senai\\senai_sprint4_frontend\\WishList\\WishList\\obj\\",
+        "outputPath": "D:\\Senai\\senai_sprint4_frontend\\WishList - Repositório\\WishList\\WishList\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\Enzzo Lima\\AppData\\Roaming\\NuGet\\NuGet.Config",

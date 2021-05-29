@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "artAzWJR8+QVvli3dDwiFILnQRoWMnLnfhxfKphyhqO9vEVXaSG2fZyRAqCDbk3y8oPTYEsCh46BCO0Lido7cA==",
+  "dgSpecHash": "lz6yZgeyXJsBLp5AG2SEM0oG/oTs0bUKdcc5OaY7Bu2Bz5KGl5srLGjti9iqeq4YLNyK1DR9GD8qSCmHC/DE8g==",
   "success": true,
-  "projectFilePath": "D:\\Senai\\senai_sprint4_frontend\\WishList\\WishList\\WishList.csproj",
+  "projectFilePath": "D:\\Senai\\senai_sprint4_frontend\\WishList - Repositório\\WishList\\WishList\\WishList.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\Enzzo Lima\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\Enzzo Lima\\.nuget\\packages\\microsoft.aspnetcore.authentication.jwtbearer\\5.0.6\\microsoft.aspnetcore.authentication.jwtbearer.5.0.6.nupkg.sha512",

@@ -6,7 +6,7 @@
 
 .novoDesejo{
     display: flex;
-    width: 600px;
+    width: 500px;
     height: 700px;
     margin: 80px 80px;
 }
@@ -34,3 +34,11 @@
     margin-left: 310px;
     border-radius: 10px;
 }
+
+.ListaDeDesejos{
+    display: flex;
+    width: 500px;
+    height: 800px;
+    border: 1px solid black;
+    background-color: gray;
+}    

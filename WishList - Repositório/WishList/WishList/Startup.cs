@@ -33,6 +33,18 @@ namespace WishList
                         options.SerializerSettings.NullValueHandling = NullValueHandling.Ignore;
                     });
 
+            //Adiciona o CORS ao projeto, assim possibilitando as requisições
+            services.AddCors(options => {
+                options.AddPolicy("CorsPolicy",
+                    builder =>
+                    {
+                        builder.WithOrigins("http://localhost:3000/desejos")
+                                                                    .AllowAnyHeader()
+                                                                    .AllowAnyMethod();
+                    }
+                    );
+            });
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "WishList", Version = "v1" });
@@ -100,6 +112,8 @@ namespace WishList
 
             //Habilita a autorização
             app.UseAuthorization();
+
+            app.UseCors("CorsPolicy");
 
             app.UseEndpoints(endpoints =>
             {
