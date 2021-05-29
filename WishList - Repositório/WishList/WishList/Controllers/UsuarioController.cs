@@ -80,7 +80,7 @@ namespace WishList.Controllers
         /// <param name="id">id informado para achar o usuário desejado</param>
         /// <param name="usuarioAtualizado">Objeto para armazenar as novas informações</param>
         /// <returns>Retorna um Satus code informando se tudo ocorreu bem, caso não tenha ocorrido retorna um bad request</returns>
-        [HttpPut]
+        [HttpPut("{id}")]
         public IActionResult Put(int id, Usuario usuarioAtualizado)
         {
             try

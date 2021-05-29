@@ -7,18 +7,96 @@ class Desejos extends Component{
         super(props);
         this.state = {
             //variáveis/propriedades
-            idDesejo : '',
+            listaDesejo : [],
             Descricao : '',
-            DataCriacao : '',
-            idUsuario : ''
+            idDesejoAlterado : 0,
+            date : new Date(),
+            dataCriacao : ''
         }
     }
 
     //Funções
 
+    buscarDesejos = () => {
+
+        console.log("Vamos realizar a chamada para a API")
+
+        fetch('http://localhost:5000/api/desejo')
+
+        .then(resposta => resposta.json())
+
+        .then(data => this.setState({listaDesejo : data}))
+
+        .catch( (erro) => console.log(erro) )
+    }
+
+    cadastrar = (event) => {
+        //Ignora o comportamento padrão do navegador - Não atualiza
+        event.preventDefault()
+        //DAQUI PARA BAIXO É ATUALIZAR
+
+        if (this.state.idDesejoAlterado !== 0) {
+            //edita
+            fetch('http://localhost:5000/api/desejo/' + this.state.idDesejoAlterado,
+            {
+                method : 'PUT',
+
+                body : JSON.stringify( {Descricao : this.state.Descricao } ),
+
+                headers : {
+
+                    "Content-Type" : "application/json"
+                }
+            })
+                .then(resposta => {
+                    if(resposta.status === 200){
+                        console.log(
+                            'Desejo ' + this.state.idDesejoAlterado + 'atualizado'
+                        )
+                    }
+                })
 
 
-    estadoDescricao = async (evento) => {
+                .catch(erro => console.log(erro))
+
+                .then(this.buscarDesejos)
+
+                .then(this.limparCampos)
+            
+
+        } else {
+
+            //DAQUI PARA BAIXO É CADASTRO
+            fetch('http://localhost:5000/api/desejo', 
+            {
+
+            method : 'POST',
+
+            body : JSON.stringify({Descricao : this.state.Descricao, dataCriacao : this.state.date}),
+
+            headers : {
+                "Content-Type" : "application/json"
+            }
+
+            
+
+        })
+
+
+            .then(console.log("Desejo cadastrado"))
+
+            .catch(error => console.log(error))
+
+            .then(this.buscarDesejos)
+
+            .then(this.limparCampos)
+        }
+
+        
+
+    }
+
+    atualizarEstadoDescricao = async (evento) => {
 
         await this.setState({ Descricao : evento.target.value})
 
@@ -26,72 +104,53 @@ class Desejos extends Component{
 
         evento.preventDefault();
     }
+    //Funções
 
-    //Cadastra de fato a modificação ao Banco de dados
-
-    listar = () =>{
-
-        fetch('http://localhost:5000/api/desejo/' + this.state.idUsuario,{
-
-            method : "GET",
-        })
-
-        .then(resposta => resposta.json())
-
-        .then(data => this.setState({ desejos : data }))
-
-        .catch( (erro) => console.log(erro) )
+    componentDidMount(){
+        this.buscarDesejos()
     }
 
-    cadastrar = async (event) => {
-
-        event.preventDefault();
-        
-        fetch('http://localhost:5000/api/desejo', {
-
-            method : 'POST',
-
-            body : JSON.stringify({
-                idUsuario : this.state.idUsuario,                   
-                descricao : this.state.descricao,
-                dataCriacao : this.state.dataCriacao
-            }),
-
-            headers : {
-                "Content-Type" : "application/json"
-            },
+    buscarDesejoPorId =   async (Desejo) => {
+         await this.setState( {
+            idDesejoAlterado : Desejo.idDesejo,
+            Descricao : Desejo.descricao
+        }, () => {
+            console.log('O desejo ' + Desejo.idDesejo + ' foi selecionado')
         })
-
-            .then(console.log("Desejo cadastrado!"))
-
-            .catch(erro => console.log(erro))
-
-            .then(this.listar)        
     }
 
-    excluir = (id) => {
-        
-        fetch('http://localhost:5000/api/desejo/' + id.idDesejo, {
+    excluirPorId = async(Desejo) => {
+        console.log('O desejo ' + Desejo.idDesejo + 'foi selecionado')
+
+        fetch('http://localhost:5000/api/desejo/'+ Desejo.idDesejo, {
 
             method : 'DELETE'
         })
 
-        .then(console.log('Deletando informação solicitada!'))
+        .then(resposta => {
+            if(resposta === 204)
+            {
+               console.log('Desejo: '+ Desejo.idDesejo + ' foi deletado') 
+            }
+        })
 
         .catch(erro => console.log(erro))
 
-        .then(this.listar)
-    }
+        .then(this.buscarDesejos)
 
+        .then(this.limparCampos)
+    }   
 
-    //Funções
-
-    componentDidMount(){
-
-    }
+    limparCampos = () => {
+        this.setState({
+            Descricao : '',
+            idDesejoAlterado : 0
+        })
+    }    
 
     render(){
         return(
+
             <main>
                 <section className="novoDesejo">
                     <div className="InserirDesejo">
@@ -99,17 +158,34 @@ class Desejos extends Component{
                         <h2>Insira um novo desejo!</h2>
 
                         <form onSubmit={this.cadastrar}>
+                            
                             <input type="text" value={this.state.Descricao} 
-                            onChange={this.estadoDescricao}
+                            required
+                            onChange={this.atualizarEstadoDescricao}
                             placeholder="Insira o seu próximo sonho a ser realizado">    
                             </input>
                             <button type="submit">Cadastrar</button>
                         </form>                     
                     </div>
-                </section>
-                <aside className="ListaDeDesejos">
+                </section>    
 
-                </aside>
+
+                    <div className="listaDeDesejos">
+                        <h2>Lista de desejos</h2>
+                                {
+                                    this.state.listaDesejo.map((Desejo) => {
+                                        return(
+                                            <div className="desejos" key={Desejo.idDesejo}>
+                                                <p>{Desejo.descricao}</p>
+                                                <p className="horaCriacao">{Desejo.dataCriacao}</p>
+                                                <button onClick={ () => this.buscarDesejoPorId(Desejo)}>Editar</button>
+                                                <button onClick={ () => this.excluirPorId(Desejo)}>Apagar</button>
+                                            </div>
+                                        )
+                                    })
+                                }
+                    </div>
+                
                 
             </main>   
         )

@@ -6,24 +6,31 @@
 
 .novoDesejo{
     display: flex;
-    width: 500px;
-    height: 700px;
-    margin: 80px 80px;
+    justify-content: center;
+    width: 100%;
+    height: 200px;
+    margin-top: 80px;
+}
+
+.InserirDesejo{
+    width: 470px;
+    height: 300px;
 }
 
 .InserirDesejo h2{
     color: white;
     font-size: 24px;
-    margin-left: 15px;
+    text-align: center;
+    margin-right: 50px;
 }
 
 .InserirDesejo > form > input{
-    width: 500px;
+    width: 400px;
     height: 40px;
     border-radius: 15px;
     padding: 0 15px;
     border: none;
-    margin: 15px 10px;
+    margin: 15px 0;
 
 }
 
@@ -31,14 +38,42 @@
     width: 200px;
     height: 30px;
     border: none;
-    margin-left: 310px;
+    margin-left: 100px;
     border-radius: 10px;
 }
 
-.ListaDeDesejos{
+.listaDeDesejos{
     display: flex;
-    width: 500px;
-    height: 800px;
-    border: 1px solid black;
+    flex-direction: column;
+    justify-content: center;
+    flex-wrap: nowrap;
+    width: 100%;
+    text-align: center;
+}
+
+.listaDeDesejos h2{
+    margin-top: 10px;
+    color: white;
+}
+
+.desejos{
+    width: 100%;
+    height: auto;
+    display: flex;
+    margin-top: 15px;
     background-color: gray;
-}    
+}
+
+.desejos p{
+    padding: 20px 20px;
+}
+
+.horaCriacao{
+    text-align: center;
+}
+
+.desejos button{
+    width: 100px;
+    height: 30px;
+    margin: 20px 10px;
+}

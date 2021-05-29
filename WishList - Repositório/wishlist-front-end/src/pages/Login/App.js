@@ -31,7 +31,7 @@ class Login extends Component{
   }    
 
 
-  Logar = () => {
+  Logar = ( e) => {
     console.log('Agora iremos consumir a API');
 
     //Fetch é utilizado para consumirmos a API
@@ -42,8 +42,8 @@ class Login extends Component{
 
         //Converte o state para uma string JSON
           body : JSON.stringify({
-            Email : this.state.Email, 
-            Senha : this.state.Senha
+            email : this.state.Email, 
+            senha : this.state.Senha
           }),
 
         headers : {
@@ -57,6 +57,8 @@ class Login extends Component{
     .then(dado => this.setState({usuario : dado}))
 
     .catch(error => console.log(error))
+
+    e.preventDefault()
 
   }
 

@@ -38,7 +38,7 @@ namespace WishList
                 options.AddPolicy("CorsPolicy",
                     builder =>
                     {
-                        builder.WithOrigins("http://localhost:3000/desejos")
+                        builder.WithOrigins("http://localhost:3000")
                                                                     .AllowAnyHeader()
                                                                     .AllowAnyMethod();
                     }

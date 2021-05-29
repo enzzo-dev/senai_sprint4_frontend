@@ -36,18 +36,18 @@ namespace WishList.Controllers
 
                 return Ok(_desejoRepository.ListarTodos());
 
-            } catch(Exception e)
+            } catch (Exception e)
             {
                 return BadRequest(e);
             }
         }
-        
+
         /// <summary>
         /// Irá cadastrar um novo desejo no banco de dados via JSON
         /// </summary>
         /// <param name="novoDesejo"></param>
         /// <returns>Se tudo der certo irá retornar um StatusCode de 202</returns>
-        [Authorize]
+        //[Authorize]
         [HttpPost]
         public IActionResult Post(Desejo novoDesejo)
         {
@@ -58,7 +58,7 @@ namespace WishList.Controllers
 
                 return StatusCode(202);
 
-            }catch(Exception e)
+            } catch (Exception e)
             {
                 return BadRequest(e);
             }
@@ -70,8 +70,8 @@ namespace WishList.Controllers
         /// <param name="id"></param>
         /// <param name="desejoAtualizado"></param>
         /// <returns>Se tudo der certo irá retornar um StatusCode de 201</returns>
-        [Authorize]
-        [HttpPut]
+        //[Authorize]
+        [HttpPut("{id}")]
         public IActionResult Put(int id, Desejo desejoAtualizado)
         {
             try
@@ -92,8 +92,8 @@ namespace WishList.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns>Irá retornar um StatusCode de 204 caso dê tudo certo</returns>
-        [Authorize]
-        [HttpDelete]
+        //[Authorize]
+        [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
             try
