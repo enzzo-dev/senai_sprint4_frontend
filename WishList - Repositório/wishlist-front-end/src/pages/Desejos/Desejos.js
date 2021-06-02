@@ -1,4 +1,5 @@
 import {Component} from 'react';
+import {parseJwt} from '../../services/auth';
 
 import './Desejos.css'
 

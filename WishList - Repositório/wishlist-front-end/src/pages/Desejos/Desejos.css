@@ -91,19 +91,20 @@
 .desejos p{
     font-size: 20px;
     letter-spacing: 1px;
-    padding: 20px 20px;
+    padding: 20px 30px;
     color: white;
     margin: 27px 15px;
 }
 
 .horaCriacao{
     text-align: center;
+    margin-right: 35px;
 }
 
  .desejos button{
     width: 80px;
     height: 30px;
-    margin: 50px 15px;
+    margin: 40px 0;
     cursor: pointer;
     border: none;
     font-size: 18px;
@@ -112,6 +113,7 @@
 .editar{
     background-color: rgb(155, 154, 154);
     color: rgb(0, 107, 0);
+    margin-left: 50px;
     
 }
 

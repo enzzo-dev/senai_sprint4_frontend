@@ -27,7 +27,6 @@ namespace WishList.Controllers
         /// Irá listar todos os desejos em JSON NO PostMan
         /// </summary>
         /// <returns>Se tudo der certo ira retornar os desejos e um OK</returns>
-        //[Authorize]
         [HttpGet]
         public IActionResult Get()
         {
@@ -47,7 +46,7 @@ namespace WishList.Controllers
         /// </summary>
         /// <param name="novoDesejo"></param>
         /// <returns>Se tudo der certo irá retornar um StatusCode de 202</returns>
-        //[Authorize]
+        [Authorize]
         [HttpPost]
         public IActionResult Post(Desejo novoDesejo)
         {
@@ -70,7 +69,7 @@ namespace WishList.Controllers
         /// <param name="id"></param>
         /// <param name="desejoAtualizado"></param>
         /// <returns>Se tudo der certo irá retornar um StatusCode de 201</returns>
-        //[Authorize]
+        [Authorize]
         [HttpPut("{id}")]
         public IActionResult Put(int id, Desejo desejoAtualizado)
         {
@@ -92,7 +91,7 @@ namespace WishList.Controllers
         /// </summary>
         /// <param name="id"></param>
         /// <returns>Irá retornar um StatusCode de 204 caso dê tudo certo</returns>
-        //[Authorize]
+        [Authorize]
         [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {

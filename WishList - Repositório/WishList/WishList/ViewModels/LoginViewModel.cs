@@ -9,6 +9,7 @@ namespace WishList.ViewModels
 {
     public class LoginViewModel
     {
+
         [Required(ErrorMessage = "Informe o Email para Acessar!")]
         public string Email { get; set; }
 

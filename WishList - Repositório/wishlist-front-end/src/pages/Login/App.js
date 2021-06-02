@@ -1,4 +1,7 @@
 import {Component } from 'react';
+import axios from 'axios';
+import {parseJwt} from '../../services/auth';
+
 
 import './App.css';
 
@@ -7,62 +10,58 @@ class Login extends Component{
     super(props);
     this.state = {
       //Váriaveis/componentes
-      idUsuario : '',
-      Email : '',
-      Senha : '',
-      Desejos : []
+      email : '',
+      senha : '',
+      erroMensagem : '',
+      isLoading : false
     }
   }
 
-  email = async (login) =>{
-    await this.setState({ Email : login.target.value})
 
-    console.log(this.state.Email)
+  atualizarCampos = (campo) => {
+    this.setState({ [campo.target.name] : campo.target.value })
+  } 
 
-    login.preventDefault();
-  }
+  Logar = (event) => {
 
-  senha = async (login) =>{
-    await this.setState({ Senha : login.target.value})
+    event.preventDefault()
 
-    console.log(this.state.Senha)
-  
-    login.preventDefault();
-  }    
+    this.setState({erroMensagem : '', isLoading : true})
 
-
-  Logar = ( e) => {
-    console.log('Agora iremos consumir a API');
-
-    //Fetch é utilizado para consumirmos a API
-    fetch('http://localhost:5000/api/login', {
-
-        //Define o método de requisição
-        method : 'POST',
-
-        //Converte o state para uma string JSON
-          body : JSON.stringify({
-            email : this.state.Email, 
-            senha : this.state.Senha
-          }),
-
-        headers : {
-          "Content-Type" : "application/json"
-        }
-
-        
-
+    axios.post("http://localhost:5000/api/login", {
+      email : this.state.email,
+      senha : this.state.senha
     })
 
-    .then(resposta => resposta.json())
+    .then(resposta => {
+      if(resposta.status === 200)
+      {
+        localStorage.setItem("usuario-login", resposta.data.token);
 
-    .then(dado => this.setState({usuario : dado}))
+        console.log('Meu token é: ' + resposta.data.token);
 
-    .catch(error => console.log(error))
+        this.setState({isLoading : false});
 
-    e.preventDefault()
+        // let base64 = localStorage.getItem('usuario-login').split('.')[1];
 
-  }
+        // console.log(JSON.parse(window.atob(base64)))
+
+        console.log(parseJwt().role)
+
+        if(parseJwt().role !== "")
+        {
+          this.props.history.push('/desejos')
+        }
+      }
+    })
+
+    .catch( () => {
+      
+      this.setState({erroMensagem : 'Email ou Senha incorretos! Tente novamente', isLoading : false}) 
+
+    
+  })
+  }  
 
   componentDidMount(){
     //vai acontecer quando abrir a página
@@ -75,11 +74,12 @@ class Login extends Component{
         <h2>Login</h2>
         <form className="form-login" onSubmit={this.Logar}>
 
-          <input onChange={this.email} value={this.state.Email} type="email" placeholder="Digite seu email" required></input>
+          <input name="email" onChange={this.atualizarCampos} value={this.state.email} type="email" placeholder="Digite seu email" required></input>
 
-          <input onChange={this.senha}  value={this.state.Senha} type="password" placeholder="Digite sua senha" required></input>
+          <input name="senha" onChange={this.atualizarCampos}  value={this.state.senha} type="password" placeholder="Digite sua senha" required></input>
+          <p className="erro">{this.state.erroMensagem}</p>
 
-          <button type="submit">Conectar</button>
+          <button  type="submit">Conectar</button>
         </form>
       </div>
     </div>

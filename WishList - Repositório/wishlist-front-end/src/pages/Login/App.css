@@ -62,6 +62,13 @@ body{
   font-size: 20px;
   font-weight: bolder;
   border: none;
+  cursor: pointer;
+}
+
+.form-login p{
+  color: red;
+  font-size: 20px;
+  letter-spacing: 1px;
 }
 
 .App-header {

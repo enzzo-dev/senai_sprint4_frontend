@@ -44,6 +44,10 @@ namespace WishList.Controllers
 
                     new Claim(JwtRegisteredClaimNames.Jti, userLogin.IdUsuario.ToString()),
 
+                    new Claim(ClaimTypes.Role, userLogin.IdUsuario.ToString()),
+
+                    new Claim("role", userLogin.IdUsuario.ToString())
+
                 };
 
                 var key = new SymmetricSecurityKey(System.Text.Encoding.UTF8.GetBytes("WishList_chave_de_autenticacao"));

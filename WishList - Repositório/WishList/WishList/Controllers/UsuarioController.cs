@@ -103,7 +103,7 @@ namespace WishList.Controllers
         /// <param name="id">parâmetro usado para encontrar o usuário desejado</param>
         /// <returns>Deleta o usuário desejado caso você tenha permissão e um StatusCode caso dê certo, caso contrário gera um BadRequest</returns>
         [Authorize]
-        [HttpDelete]
+        [HttpDelete("{id}")]
         public IActionResult Delete(int id)
         {
             try
