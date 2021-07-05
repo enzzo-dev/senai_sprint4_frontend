@@ -1,4 +1,5 @@
 # senai_sprint4_frontend
-Nessa sprint utilizaremos ReactJS e React Native
+Nessa sprint utilizaremos ReactJS 
+
 
 Pastas referentes a proejetos realizados dentro e fora dos ensinamentos do curso
