@@ -22,7 +22,11 @@ class Desejos extends Component{
 
         console.log("Vamos realizar a chamada para a API")
 
-        fetch('http://localhost:5000/api/desejo')
+        fetch('http://localhost:5000/api/desejo', {
+            headers : {
+                'Authorization' : 'Bearer ' + localStorage.getItem('usuario-login')
+            }
+        })
 
         .then(resposta => resposta.json())
 
@@ -46,7 +50,8 @@ class Desejos extends Component{
 
                 headers : {
 
-                    "Content-Type" : "application/json"
+                    "Content-Type" : "application/json",
+                    'Authorization' : 'Bearer ' + localStorage.getItem('usuario-login')
                 }
             })
                 .then(resposta => {
@@ -77,7 +82,8 @@ class Desejos extends Component{
             body : JSON.stringify({Descricao : this.state.Descricao, dataCriacao : this.state.date}),
 
             headers : {
-                "Content-Type" : "application/json"
+                "Content-Type" : "application/json",
+                'Authorization' : 'Bearer ' + localStorage.getItem('usuario-login')
             }
 
         })
@@ -124,7 +130,11 @@ class Desejos extends Component{
 
         fetch('http://localhost:5000/api/desejo/'+ Desejo.idDesejo, {
 
-            method : 'DELETE'
+            method : 'DELETE',
+
+            headers : {
+                'Authorization' : 'Bearer ' + localStorage.getItem('usuario-login')
+            }
         })
 
         .then(resposta => {

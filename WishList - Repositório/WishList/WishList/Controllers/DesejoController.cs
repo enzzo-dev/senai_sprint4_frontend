@@ -27,6 +27,7 @@ namespace WishList.Controllers
         /// Irá listar todos os desejos em JSON NO PostMan
         /// </summary>
         /// <returns>Se tudo der certo ira retornar os desejos e um OK</returns>
+        [Authorize]
         [HttpGet]
         public IActionResult Get()
         {
